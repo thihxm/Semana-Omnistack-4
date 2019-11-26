@@ -14,7 +14,7 @@ class LikeController {
     }
 
     if (targetDev.likes.includes(loggedDev._id)) {
-      console.log('Match');
+      console.log('DEU MATCH');
     }
 
     loggedDev.likes.push(targetDev._id);
