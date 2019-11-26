@@ -1,16 +1,22 @@
+import dotenv from 'dotenv';
+
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 import routes from './routes';
 
+dotenv.config();
+
 const server = express();
 
-mongoose.connect('mongodb+srv://tindev:tindev@cluster0-qml6v.mongodb.net/tindev?retryWrites=true&w=majority', {
+mongoose.connect(process.env.APP_DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
+server.use(cors());
 server.use(express.json());
 server.use(routes);
 
-server.listen(3333);
+server.listen(process.env.PORT || 3333);

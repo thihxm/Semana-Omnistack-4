@@ -1,14 +1,19 @@
 {
-  "name": "semana-omnistack-4",
+  "name": "tindev-backend",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "https://github.com/thihxm/Semana-Omnistack-4.git",
+  "author": "Thiago Henrique Xavier Medeiros <thihxm@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "sucrase-node src/index.js",
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.7.12"
   },

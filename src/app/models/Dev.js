@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+const { Schema, model } = require('mongoose');
 
 const DevSchema = new Schema(
   {
@@ -10,17 +10,27 @@ const DevSchema = new Schema(
       type: String,
       required: true,
     },
-    bio: {
-      type: String,
-    },
+    bio: String,
     avatar: {
       type: String,
       required: true,
     },
+    likes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Dev',
+      },
+    ],
+    dislikes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Dev',
+      },
+    ],
   },
   {
     timestamps: true,
   }
 );
 
-export default model('dev', DevSchema);
+module.exports = model('Dev', DevSchema);
